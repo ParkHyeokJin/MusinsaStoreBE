@@ -1,0 +1,228 @@
+= 무신사 B/E API 문서
+
+:toc: left
+:source-highlighter: highlightjs
+:sectlinks:
+
+[[overview-http-status-codes]]
+=== HTTP status codes
+
+|===
+| 상태 코드 | 설명
+| `200 OK`
+| 성공
+| `201 Created`
+| 리소스 생성
+| `400 Bad Request`
+| 잘못된 요청
+| `401 Unauthorized`
+| 비인증 상태
+| `403 Forbidden`
+| 권한 거부
+| `404 Not Found`
+| 존재하지 않는 리소스에 대한 요청
+| `500 Internal Server Error`
+| 서버 에러
+|===
+
+ifndef::snippets[]
+:snippets: ./build/generated-snippets
+endif::[]
+
+== 브랜드 관리
+
+=== 브랜드 생성
+
+==== 요청
+
+include::{snippets}/brand-controller-test/브랜드를_생성할수_있다/http-request.adoc[]
+
+==== 응답
+
+include::{snippets}/brand-controller-test/브랜드를_생성할수_있다/http-response.adoc[]
+
+=== 브랜드 삭제
+
+==== 요청
+
+include::{snippets}/brand-controller-test/브랜드를_삭제할수_있다/http-request.adoc[]
+
+==== 응답
+
+include::{snippets}/brand-controller-test/브랜드를_삭제할수_있다/http-response.adoc[]
+
+=== 브랜드 수정
+
+==== 요청
+
+include::{snippets}/brand-controller-test/브랜드명을_수정할수_있다/http-request.adoc[]
+
+==== 응답
+
+include::{snippets}/brand-controller-test/브랜드명을_수정할수_있다/http-response.adoc[]
+
+=== 브랜드 리스트 조회
+
+==== 요청
+
+include::{snippets}/brand-controller-test/브랜드_리스트를_조회할수_있다/http-request.adoc[]
+
+==== 응답
+
+include::{snippets}/brand-controller-test/브랜드_리스트를_조회할수_있다/http-response.adoc[]
+
+=== 브랜드 아이디 조회
+
+==== 요청
+
+include::{snippets}/brand-controller-test/브랜드_아이디로_조회할수_있다/http-request.adoc[]
+
+==== 응답
+
+include::{snippets}/brand-controller-test/브랜드_아이디로_조회할수_있다/http-response.adoc[]
+
+=== 브랜드 명 조회
+
+==== 요청
+
+include::{snippets}/brand-controller-test/브랜드명으로_조회할수_있다/http-request.adoc[]
+
+==== 응답
+
+include::{snippets}/brand-controller-test/브랜드명으로_조회할수_있다/http-response.adoc[]
+
+== 카테고리 관리
+
+=== 카테고리 생성
+
+==== 요청
+
+include::{snippets}/category-controller-test/카테고리를_생성할수_있다/http-request.adoc[]
+
+==== 응답
+
+include::{snippets}/category-controller-test/카테고리를_생성할수_있다/http-response.adoc[]
+
+=== 카테고리 삭제
+
+==== 요청
+
+include::{snippets}/category-controller-test/카테고리를_삭제할수_있다/http-request.adoc[]
+
+==== 응답
+
+include::{snippets}/category-controller-test/카테고리를_삭제할수_있다/http-response.adoc[]
+
+=== 카테고리 수정
+
+==== 요청
+
+include::{snippets}/category-controller-test/카테고리명을_수정할수_있다/http-request.adoc[]
+
+==== 응답
+
+include::{snippets}/category-controller-test/카테고리명을_수정할수_있다/http-response.adoc[]
+
+=== 카테고리 리스트 조회
+
+==== 요청
+
+include::{snippets}/category-controller-test/카테고리_리스트를_조회할수_있다/http-request.adoc[]
+
+==== 응답
+
+include::{snippets}/category-controller-test/카테고리_리스트를_조회할수_있다/http-response.adoc[]
+
+=== 카테고리 명 조회
+
+==== 요청
+
+include::{snippets}/category-controller-test/카테고리명으로_조회할수_있다/http-request.adoc[]
+
+==== 응답
+
+include::{snippets}/category-controller-test/카테고리명으로_조회할수_있다/http-response.adoc[]
+
+=== 카테고리 명 조회
+
+==== 요청
+
+include::{snippets}/category-controller-test/카테고리아이디로_조회할수_있다/http-request.adoc[]
+
+==== 응답
+
+include::{snippets}/category-controller-test/카테고리아이디로_조회할수_있다/http-response.adoc[]
+
+== 상품 관리
+
+=== 상품 등록
+
+==== 요청
+
+include::{snippets}/product-controller-test/상품을_등록할수_있다/http-request.adoc[]
+
+==== 응답
+
+include::{snippets}/product-controller-test/상품을_등록할수_있다/http-response.adoc[]
+
+=== 상품 삭제
+
+==== 요청
+
+include::{snippets}/product-controller-test/상품을_삭제할수_있다/http-request.adoc[]
+
+==== 응답
+
+include::{snippets}/product-controller-test/상품을_삭제할수_있다/http-response.adoc[]
+
+=== 상품명 조회
+
+==== 요청
+
+include::{snippets}/product-controller-test/상품명으로_상품을_찾을수_있다/http-request.adoc[]
+
+==== 응답
+
+include::{snippets}/product-controller-test/상품명으로_상품을_찾을수_있다/http-response.adoc[]
+
+=== 상품 아이디 조회
+
+==== 요청
+
+include::{snippets}/product-controller-test/상품아이디로_상품을_찾을수_있다/http-request.adoc[]
+
+==== 응답
+
+include::{snippets}/product-controller-test/상품아이디로_상품을_찾을수_있다/http-response.adoc[]
+
+== 상품 추천
+
+=== 카테고리별 최저가격 상품 추천
+
+==== 요청
+
+include::{snippets}/recommendation-controller-test/카테고리별_최저가격의_상품을_추천받을수_있다/http-request.adoc[]
+
+==== 응답
+
+include::{snippets}/recommendation-controller-test/카테고리별_최저가격의_상품을_추천받을수_있다/http-response.adoc[]
+
+=== 모든 카테고리별 상품을 구매할경우 최저가격의 브랜드 추천
+
+==== 요청
+
+include::{snippets}/recommendation-controller-test/모든_카테고리를_구매할경우_최저가격의_브랜드를_추천받을수_있다/http-request.adoc[]
+
+==== 응답
+
+include::{snippets}/recommendation-controller-test/모든_카테고리를_구매할경우_최저가격의_브랜드를_추천받을수_있다/http-response.adoc[]
+
+=== 카테고리에 해당되는 최저가격의 상품과 최고가격의 상품 조회
+
+==== 요청
+
+include::{snippets}/recommendation-controller-test/카테고리명으로_조회하여_최저가격의_상품과_최고가격의_상품을_추천받을수_있다/http-request.adoc[]
+
+==== 응답
+
+include::{snippets}/recommendation-controller-test/카테고리명으로_조회하여_최저가격의_상품과_최고가격의_상품을_추천받을수_있다/http-response.adoc[]
