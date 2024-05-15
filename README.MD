@@ -33,6 +33,9 @@
 
 ## API 문서
 
+서버 실행 후 접속 : [http://localhost:8081/docs/api.html]()
+
+<img width="1601" alt="apidocsImg" src="https://github.com/ParkHyeokJin/MusinsaStoreBE/assets/19565772/edc1e960-4193-4008-87a1-237f8970a15d">
 
 
 ## 빌드 방법
