@@ -30,13 +30,45 @@
 
 <img width="746" alt="stackImg" src="https://github.com/ParkHyeokJin/MusinsaStoreBE/assets/19565772/f3d9de90-22cd-4dad-b983-497c1df266e1">
 
+## 개발 환경
 
-## API 문서
-
-서버 실행 후 접속 : [http://localhost:8081/docs/api.html]()
-
-<img width="1601" alt="apidocsImg" src="https://github.com/ParkHyeokJin/MusinsaStoreBE/assets/19565772/edc1e960-4193-4008-87a1-237f8970a15d">
-
+* Springboot Framework 3.2.5
+* Java 17+
+* Gradle 8.7
+* H2 db
 
 ## 빌드 방법
+
+1. Git 프로젝트 저장소 복제
+
+```text
+$ git clone https://github.com/ParkHyeokJin/MusinsaStoreBE.git
+```
+
+2. Gradle build
+
+```text
+$ ./gradlew build 
+```
+
+3. Jar 실행
+
+```text
+$ cd ~/build/libs
+$ java -jar MusinsaShop-0.0.1-SNAPSHOT.jar --spring.profiles.active=local //local & test options
+```
+
+* Profile modes
+  * local : Test DML 수행
+  * test  : Test DML 제외
+
+4. 서비스 접속
+
+* 서비스 서버 : [http://localhost:8081]()
+* API Docs : [http://localhost:8081/docs/api.html]()
+
+
+## API Docs 제공
+
+<img width="1601" alt="apidocsImg" src="https://github.com/ParkHyeokJin/MusinsaStoreBE/assets/19565772/edc1e960-4193-4008-87a1-237f8970a15d">
 
