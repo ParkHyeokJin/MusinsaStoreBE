@@ -28,6 +28,7 @@
 
 ## 기술 스택
 
+<img width="746" alt="stackImg" src="https://github.com/ParkHyeokJin/MusinsaStoreBE/assets/19565772/f3d9de90-22cd-4dad-b983-497c1df266e1">
 
 
 ## API 문서
