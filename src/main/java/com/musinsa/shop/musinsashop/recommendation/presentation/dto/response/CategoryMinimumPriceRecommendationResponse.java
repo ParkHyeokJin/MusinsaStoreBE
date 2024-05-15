@@ -7,7 +7,7 @@ public record CategoryMinimumPriceRecommendationResponse(
         String brandName,
         long productPrice
 ) {
-    public static CategoryMinimumPriceRecommendationResponse from(ReadProductDto dto){
+    public static CategoryMinimumPriceRecommendationResponse from(final ReadProductDto dto){
         return new CategoryMinimumPriceRecommendationResponse(dto.categoryDto().categoryName(), dto.brandDto().brandName(), dto.productPrice());
     }
 }

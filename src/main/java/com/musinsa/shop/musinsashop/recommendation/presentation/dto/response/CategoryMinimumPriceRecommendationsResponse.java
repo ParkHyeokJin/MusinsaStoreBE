@@ -13,11 +13,11 @@ public record CategoryMinimumPriceRecommendationsResponse(long totalPrice, List<
         return new CategoryMinimumPriceRecommendationsResponse(totalPrice, recommendations);
     }
 
-    public static String toJsonStringResponse(long totalPrice, List<CategoryMinimumPriceRecommendationResponse> recommendations) throws JsonProcessingException {
+    public static String toJsonStringResponse(final long totalPrice, final List<CategoryMinimumPriceRecommendationResponse> recommendations) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
-        Map<String, Object> response = new HashMap<>();
+        final Map<String, Object> response = new HashMap<>();
 
-        List<Object> products = new ArrayList<>();
+        final List<Object> products = new ArrayList<>();
         for(CategoryMinimumPriceRecommendationResponse recommendationResponse : recommendations){
             Map<String, Object> product = new HashMap<>();
             product.put("카테고리", recommendationResponse.categoryName());

@@ -34,15 +34,15 @@ public class CategoryService {
     }
 
     @Transactional
-    public void deleteCategory(long categoryId) {
-        Category category = categoryRepository.findById(categoryId)
+    public void deleteCategory(final long categoryId) {
+        final Category category = categoryRepository.findById(categoryId)
                 .orElseThrow(() -> new CategoryNotFoundException("삭제할 카테고리가 없습니다."));
         categoryRepository.delete(category);
     }
 
     @Transactional
-    public ReadCategoryDto updateCategory(String categoryName, String toCategoryName){
-        Category category = categoryRepository.findByCategoryName(categoryName)
+    public ReadCategoryDto updateCategory(final String categoryName, final String toCategoryName){
+        final Category category = categoryRepository.findByCategoryName(categoryName)
                 .orElseThrow(() -> new CategoryNotFoundException("등록된 카테고리가 없습니다."));
 
         categoryRepository.findByCategoryName(toCategoryName)
@@ -55,27 +55,27 @@ public class CategoryService {
         return ReadCategoryDto.from(category);
     }
 
-    public List<ReadCategoryDto> selectCategories(int pageNumber, int pageSize) {
+    public List<ReadCategoryDto> selectCategories(final int pageNumber, final int pageSize) {
         Pageable pageable = PageRequest.of(pageNumber, pageSize);
         return categoryRepository.findAll(pageable)
                 .stream().map(ReadCategoryDto::from).toList();
     }
 
-    public ReadCategoryDto selectCategory(long categoryId) {
-        Category category = categoryRepository.findById(categoryId)
+    public ReadCategoryDto selectCategory(final long categoryId) {
+        final Category category = categoryRepository.findById(categoryId)
                 .orElseThrow(() -> new CategoryNotFoundException("등록된 카테고리가 없습니다."));
         return ReadCategoryDto.from(category);
     }
 
-    public ReadCategoryDto selectCategoryByName(String categoryName) {
-        Category category = categoryRepository.findByCategoryName(categoryName)
+    public ReadCategoryDto selectCategoryByName(final String categoryName) {
+        final Category category = categoryRepository.findByCategoryName(categoryName)
                 .orElseThrow(() -> new CategoryNotFoundException("등록된 카테고리가 없습니다."));
         return ReadCategoryDto.from(category);
     }
 
     @Transactional
-    public void saveBulkCategory(List<String> categoryList) {
-        List<Category> saveCategoryList = categoryList.stream()
+    public void saveBulkCategory(final List<String> categoryList) {
+        final List<Category> saveCategoryList = categoryList.stream()
                 .map(Category::new).toList();
         categoryRepository.bulkSave(saveCategoryList);
     }

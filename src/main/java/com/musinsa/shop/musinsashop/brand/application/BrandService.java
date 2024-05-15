@@ -41,7 +41,7 @@ public class BrandService {
     }
 
     @Transactional
-    public ReadBrandDto updateBrand(String brandName, String toBrandName) {
+    public ReadBrandDto updateBrand(final String brandName, final String toBrandName) {
         final Brand brand = brandRepository.selectBrandByName(brandName)
                 .orElseThrow(() -> new BrandNotFoundException("등록된 브랜드가 없습니다."));
 
@@ -67,14 +67,14 @@ public class BrandService {
         return ReadBrandDto.from(brand);
     }
 
-    public List<ReadBrandDto> selectBrandAll(int pageNumber, int pageSize) {
+    public List<ReadBrandDto> selectBrandAll(final int pageNumber, final int pageSize) {
         Pageable pageable = PageRequest.of(pageNumber, pageSize);
         return brandRepository.selectBrandAll(pageable)
                 .map(ReadBrandDto::from).toList();
     }
 
-    public void saveBulkBrand(List<String> brandList) {
-        List<Brand> saveBrandList = brandList.stream().map(Brand::new).toList();
+    public void saveBulkBrand(final List<String> brandList) {
+        final List<Brand> saveBrandList = brandList.stream().map(Brand::new).toList();
         brandRepository.saveBulkBrand(saveBrandList);
     }
 }

@@ -12,11 +12,11 @@ import java.util.Optional;
 public interface ProductRecommendationRepository {
     List<Product> findCategoryMinimumPriceProducts();
 
-    Optional<Product> findMinimumPriceProductByCategory(Category category);
+    Optional<Product> findMinimumPriceProductByCategory(final Category category);
 
-    Optional<Product> findMaximumPriceProductByCategory(Category category);
+    Optional<Product> findMaximumPriceProductByCategory(final Category category);
 
     Optional<Brand> findTotalMinimumPriceBrand();
 
-    List<Product> findByTotalPriceMinimumBrand(Brand brand);
+    List<Product> findByTotalPriceMinimumBrand(final Brand brand);
 }

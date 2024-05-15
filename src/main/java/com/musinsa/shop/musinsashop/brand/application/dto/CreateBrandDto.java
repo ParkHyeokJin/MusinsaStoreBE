@@ -7,7 +7,7 @@ public record CreateBrandDto (String brandName){
         return new Brand(brandName);
     }
 
-    public static CreateBrandDto of(String brandName){
+    public static CreateBrandDto of(final String brandName){
         return new CreateBrandDto(brandName);
     }
 }

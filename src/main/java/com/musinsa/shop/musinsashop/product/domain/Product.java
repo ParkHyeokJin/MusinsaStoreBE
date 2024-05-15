@@ -27,7 +27,7 @@ public class Product {
     @JoinColumn(name = "category_id")
     private Category category;
 
-    public Product(String productName, long productPrice, Brand brand, Category category){
+    public Product(final String productName, final long productPrice, final Brand brand, final Category category){
         this.productName = productName;
         this.productPrice = productPrice;
         this.brand = brand;

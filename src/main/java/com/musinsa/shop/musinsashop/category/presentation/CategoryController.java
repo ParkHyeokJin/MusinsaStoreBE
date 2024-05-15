@@ -26,7 +26,7 @@ public class CategoryController {
 
     @PostMapping
     public ResponseEntity<CategoryResponse> createCategory(@Valid @RequestBody CreateCategoryRequest createCategoryRequest){
-        ReadCategoryDto readCategoryDto = categoryService.saveCategory(CreateCategoryDto.of(createCategoryRequest.categoryName()));
+        final ReadCategoryDto readCategoryDto = categoryService.saveCategory(CreateCategoryDto.of(createCategoryRequest.categoryName()));
         return ResponseEntity.ok(CategoryResponse.from(readCategoryDto));
     }
 
@@ -38,7 +38,7 @@ public class CategoryController {
 
     @PutMapping
     public ResponseEntity<CategoryResponse> updateCategory(@Valid @RequestBody UpdateCategoryRequest updateCategoryRequest){
-        ReadCategoryDto readCategoryDto = categoryService.updateCategory(updateCategoryRequest.oldCategoryName(), updateCategoryRequest.newCategoryName());
+        final ReadCategoryDto readCategoryDto = categoryService.updateCategory(updateCategoryRequest.oldCategoryName(), updateCategoryRequest.newCategoryName());
         return ResponseEntity.ok(CategoryResponse.from(readCategoryDto));
     }
 

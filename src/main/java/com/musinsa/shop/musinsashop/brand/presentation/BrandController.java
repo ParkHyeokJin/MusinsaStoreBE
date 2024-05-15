@@ -10,6 +10,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -43,6 +44,7 @@ public class BrandController {
     }
 
     @GetMapping("/{brandId}")
+    @Cacheable(cacheNames = "brand")
     public ResponseEntity<BrandResponse> selectBrand(@PathVariable("brandId") long brandId){
         final ReadBrandDto readBrandDto = brandService.selectBrand(brandId);
         final BrandResponse brandResponse = BrandResponse.from(readBrandDto);
@@ -50,6 +52,7 @@ public class BrandController {
     }
 
     @GetMapping("/findBrandName/{brandName}")
+    @Cacheable(cacheNames = "brand")
     public ResponseEntity<BrandResponse> selectBrandByName(@PathVariable("brandName") String brandName){
         final ReadBrandDto readBrandDto = brandService.selectBrandByName(brandName);
         final BrandResponse brandResponse = BrandResponse.from(readBrandDto);
@@ -57,6 +60,7 @@ public class BrandController {
     }
 
     @GetMapping("/brands")
+    @Cacheable(cacheNames = "brand")
     public ResponseEntity<List<BrandResponse>> selectBrands(@RequestParam(defaultValue = "0")  int pageNumber,
                                                             @RequestParam(defaultValue = "10")  int pageSize){
         final List<ReadBrandDto> readBrandDtoList = brandService.selectBrandAll(pageNumber, pageSize);

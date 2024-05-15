@@ -57,23 +57,23 @@ public class ProductService {
     }
 
     public ReadProductDto findProduct(final long productId){
-        Product product = productRepository.findByProductId(productId)
+        final Product product = productRepository.findByProductId(productId)
                 .orElseThrow(() -> new ProductNotFoundException("상품을 찾을 수 없습니다."));
 
         return ReadProductDto.from(product);
     }
 
     public ReadProductDto findProductByName(final String productName){
-        Product product = productRepository.findByProductName(productName)
+        final Product product = productRepository.findByProductName(productName)
                 .orElseThrow(() -> new ProductNotFoundException("상품을 찾을 수 없습니다."));
 
         return ReadProductDto.from(product);
     }
 
     public List<ReadProductDto> findBrandProductList(final long brandId, int pageNumber, int pageSize){
-        Pageable pageable = PageRequest.of(pageNumber, pageSize);
+        final Pageable pageable = PageRequest.of(pageNumber, pageSize);
 
-        Brand brand = brandRepository.findById(brandId)
+        final Brand brand = brandRepository.findById(brandId)
                 .orElseThrow(() -> new BrandNotFoundException("해당 하는 브랜드가 없습니다."));
 
         return productRepository.findByBrand(brand, pageable)
@@ -81,9 +81,9 @@ public class ProductService {
     }
 
     public List<ReadProductDto> findCategoryProductList(final long categoryId, int pageNumber, int pageSize){
-        Pageable pageable = PageRequest.of(pageNumber, pageSize);
+        final Pageable pageable = PageRequest.of(pageNumber, pageSize);
 
-        Category category = categoryRepository.findById(categoryId)
+        final Category category = categoryRepository.findById(categoryId)
                 .orElseThrow(() -> new CategoryNotFoundException("해당 하는 카테고리가 없습니다."));
 
         return productRepository.findByCategory(category, pageable)

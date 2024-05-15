@@ -10,22 +10,22 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ProductRepository {
-    Optional<Product> findByProductId(long productId);
-    Optional<Product> findByProductName(String productName);
+    Optional<Product> findByProductId(final long productId);
+    Optional<Product> findByProductName(final String productName);
 
-    Optional<Product> findByBrandAndProductName(long brandId, String productName);
+    Optional<Product> findByBrandAndProductName(final long brandId, final String productName);
 
-    Optional<Product> findByCategoryAndProductName(long categoryId, String productName);
+    Optional<Product> findByCategoryAndProductName(final long categoryId, final String productName);
 
-    Optional<Product> findByCategoryAndBrandAndProductName(Category category, Brand brand, String productName);
+    Optional<Product> findByCategoryAndBrandAndProductName(final Category category, final Brand brand, final String productName);
 
-    Page<Product> findByBrand(Brand brand, Pageable pageable);
+    Page<Product> findByBrand(final Brand brand, final Pageable pageable);
 
-    Page<Product> findByCategory(Category category, Pageable pageable);
+    Page<Product> findByCategory(final Category category, final Pageable pageable);
 
-    Product create(Product product);
+    Product create(final Product product);
 
-    void delete(Product product);
+    void delete(final Product product);
 
-    void saveBulk(List<Product> productList);
+    void saveBulk(final List<Product> productList);
 }

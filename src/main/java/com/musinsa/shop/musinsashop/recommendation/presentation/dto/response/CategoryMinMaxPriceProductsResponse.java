@@ -11,11 +11,11 @@ public record CategoryMinMaxPriceProductsResponse(String categoryName,
                                                   ReadProductDto minimumPriceProductDto,
                                                   ReadProductDto maximumPriceProductDto
                                                   ) {
-    public static CategoryMinMaxPriceProductsResponse of(String categoryName, ReadProductDto minimumPriceProductDto, ReadProductDto maximumPriceProductDto){
+    public static CategoryMinMaxPriceProductsResponse of(final String categoryName, final ReadProductDto minimumPriceProductDto, final ReadProductDto maximumPriceProductDto){
         return new CategoryMinMaxPriceProductsResponse(categoryName, minimumPriceProductDto, maximumPriceProductDto);
     }
 
-    public static String toJsonStringResponse(String categoryName, ReadProductDto minimumPriceProductDto, ReadProductDto maximumPriceProductDto) throws JsonProcessingException {
+    public static String toJsonStringResponse(final String categoryName, final ReadProductDto minimumPriceProductDto, final ReadProductDto maximumPriceProductDto) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
         Map<String, Object> response = new HashMap<>();
         Map<String, Object> minProduct = new HashMap<>();

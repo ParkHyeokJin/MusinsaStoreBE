@@ -22,12 +22,12 @@ public class ProductRecommendationRepositoryImpl implements ProductRecommendatio
     }
 
     @Override
-    public Optional<Product> findMinimumPriceProductByCategory(Category category) {
+    public Optional<Product> findMinimumPriceProductByCategory(final Category category) {
         return jpaProductRepository.findMinimumPriceProductByCategory(category);
     }
 
     @Override
-    public Optional<Product> findMaximumPriceProductByCategory(Category category) {
+    public Optional<Product> findMaximumPriceProductByCategory(final Category category) {
         return jpaProductRepository.findMaximumPriceProductByCategory(category);
     }
 
@@ -37,7 +37,7 @@ public class ProductRecommendationRepositoryImpl implements ProductRecommendatio
     }
 
     @Override
-    public List<Product> findByTotalPriceMinimumBrand(Brand brand) {
+    public List<Product> findByTotalPriceMinimumBrand(final Brand brand) {
         return jpaProductRepository.findByTotalMinimumPriceBrandProducts(brand);
     }
 }

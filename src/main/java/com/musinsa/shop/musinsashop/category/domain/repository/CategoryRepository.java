@@ -14,11 +14,11 @@ public interface CategoryRepository {
 
     Optional<Category> findByCategoryName(final String categoryName);
 
-    Page<Category> findAll(Pageable pageable);
+    Page<Category> findAll(final Pageable pageable);
 
-    Category save(Category category);
+    Category save(final Category category);
 
-    void bulkSave(List<Category> categories);
+    void bulkSave(final List<Category> categories);
 
-    void delete(Category category);
+    void delete(final Category category);
 }

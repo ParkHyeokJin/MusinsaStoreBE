@@ -11,17 +11,19 @@ import com.musinsa.shop.musinsashop.product.application.exception.ProductNotFoun
 import com.musinsa.shop.musinsashop.product.domain.Product;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Transactional(readOnly = true)
 public class RecommendationService {
     private final ProductRecommendationRepository productRecommendationRepository;
     private final CategoryRepository categoryRepository;
 
     public List<ReadProductDto> findCategoryMinimumPriceRecommendation(){
-        List<Product> categoryMinimumPriceProducts = productRecommendationRepository.findCategoryMinimumPriceProducts();
+        final List<Product> categoryMinimumPriceProducts = productRecommendationRepository.findCategoryMinimumPriceProducts();
         return categoryMinimumPriceProducts.stream().map(ReadProductDto::from).toList();
     }
 

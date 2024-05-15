@@ -8,17 +8,17 @@ import java.util.List;
 import java.util.Optional;
 
 public interface BrandRepository {
-    void deleteBrand(Brand brand);
+    void deleteBrand(final Brand brand);
 
-    Optional<Brand> findById(long brandId);
+    Optional<Brand> findById(final long brandId);
 
-    Optional<Brand> selectBrandByName(String brandName);
+    Optional<Brand> selectBrandByName(final String brandName);
 
-    Page<Brand> selectBrandAll(Pageable pageable);
+    Page<Brand> selectBrandAll(final Pageable pageable);
 
-    Brand saveBrand(Brand brand);
+    Brand saveBrand(final Brand brand);
 
-    void saveBulkBrand(List<Brand> brandList);
+    void saveBulkBrand(final List<Brand> brandList);
 
-    Brand updateBrand(Brand brand);
+    Brand updateBrand(final Brand brand);
 }

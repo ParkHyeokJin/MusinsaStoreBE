@@ -10,6 +10,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Positive;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +25,7 @@ public class ProductController {
 
     @PostMapping
     public ResponseEntity<ProductResponse> createProduct(@Valid @RequestBody CreateProductRequest createProductRequest){
-        ReadProductDto product = productService.createProduct(CreateProductDto.of(createProductRequest.productName(), createProductRequest.productPrice(), createProductRequest.categoryId(), createProductRequest.brandId()));
+        final ReadProductDto product = productService.createProduct(CreateProductDto.of(createProductRequest.productName(), createProductRequest.productPrice(), createProductRequest.categoryId(), createProductRequest.brandId()));
         return ResponseEntity.ok(ProductResponse.from(product));
     }
 
@@ -35,32 +36,36 @@ public class ProductController {
     }
 
     @GetMapping("/{productId}")
+    @Cacheable(cacheNames = "product")
     public ResponseEntity<ProductResponse> selectProduct(@PathVariable("productId") long productId){
-        ReadProductDto readProductDto = productService.findProduct(productId);
+        final ReadProductDto readProductDto = productService.findProduct(productId);
         return ResponseEntity.ok(ProductResponse.from(readProductDto));
     }
 
     @GetMapping("/findByName/{productName}")
+    @Cacheable(cacheNames = "product")
     public ResponseEntity<ProductResponse> selectProduct(@PathVariable("productName") String productName){
-        ReadProductDto readProductDto = productService.findProductByName(productName);
+        final ReadProductDto readProductDto = productService.findProductByName(productName);
         return ResponseEntity.ok(ProductResponse.from(readProductDto));
     }
 
     @GetMapping("/findByBrand/{brandId}")
+    @Cacheable(cacheNames = "product")
     public ResponseEntity<List<ProductResponse>> selectProductsByBrand(@PathVariable("brandId") long brandId,
                                                                       @RequestParam(defaultValue = "0")  int pageNumber,
                                                                       @RequestParam(defaultValue = "10")  int pageSize
     ){
-        List<ReadProductDto> readProductDtoList = productService.findBrandProductList(brandId, pageNumber, pageSize);
+        final List<ReadProductDto> readProductDtoList = productService.findBrandProductList(brandId, pageNumber, pageSize);
         return ResponseEntity.ok(readProductDtoList.stream().map(ProductResponse::from).toList());
     }
 
     @GetMapping("/findByCategory/{categoryId}")
+    @Cacheable(cacheNames = "product")
     public ResponseEntity<List<ProductResponse>> selectProductsByCategory(@PathVariable("categoryId") long categoryId,
                                                                       @RequestParam(defaultValue = "0")  int pageNumber,
                                                                       @RequestParam(defaultValue = "10")  int pageSize
     ){
-        List<ReadProductDto> readProductDtoList = productService.findCategoryProductList(categoryId, pageNumber, pageSize);
+        final List<ReadProductDto> readProductDtoList = productService.findCategoryProductList(categoryId, pageNumber, pageSize);
         return ResponseEntity.ok(readProductDtoList.stream().map(ProductResponse::from).toList());
     }
 }

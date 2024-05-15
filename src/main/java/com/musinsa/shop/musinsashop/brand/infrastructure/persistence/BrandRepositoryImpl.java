@@ -17,37 +17,37 @@ public class BrandRepositoryImpl implements BrandRepository {
     private final JpaBrandRepository jpaBrandRepository;
 
     @Override
-    public void deleteBrand(Brand brand) {
+    public void deleteBrand(final Brand brand) {
         jpaBrandRepository.delete(brand);
     }
 
     @Override
-    public Optional<Brand> findById(long brandId) {
+    public Optional<Brand> findById(final long brandId) {
         return jpaBrandRepository.findById(brandId);
     }
 
     @Override
-    public Optional<Brand> selectBrandByName(String brandName) {
+    public Optional<Brand> selectBrandByName(final String brandName) {
         return jpaBrandRepository.findByBrandName(brandName);
     }
 
     @Override
-    public Page<Brand> selectBrandAll(Pageable pageable) {
+    public Page<Brand> selectBrandAll(final Pageable pageable) {
         return jpaBrandRepository.findAll(pageable);
     }
 
     @Override
-    public Brand saveBrand(Brand brand) {
+    public Brand saveBrand(final Brand brand) {
         return jpaBrandRepository.save(brand);
     }
 
     @Override
-    public void saveBulkBrand(List<Brand> brandList) {
+    public void saveBulkBrand(final List<Brand> brandList) {
         jpaBrandRepository.saveAll(brandList);
     }
 
     @Override
-    public Brand updateBrand(Brand brand) {
+    public Brand updateBrand(final Brand brand) {
         return jpaBrandRepository.save(brand);
     }
 }

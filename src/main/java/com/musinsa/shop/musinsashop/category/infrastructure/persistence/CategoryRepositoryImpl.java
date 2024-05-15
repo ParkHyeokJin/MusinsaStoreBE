@@ -18,32 +18,32 @@ public class CategoryRepositoryImpl implements CategoryRepository {
 
 
     @Override
-    public Optional<Category> findById(long categoryId) {
+    public Optional<Category> findById(final long categoryId) {
         return jpaCategoryRepository.findById(categoryId);
     }
 
     @Override
-    public Optional<Category> findByCategoryName(String categoryName) {
+    public Optional<Category> findByCategoryName(final String categoryName) {
         return jpaCategoryRepository.findByCategoryName(categoryName);
     }
 
     @Override
-    public Page<Category> findAll(Pageable pageable) {
+    public Page<Category> findAll(final Pageable pageable) {
         return jpaCategoryRepository.findAll(pageable);
     }
 
     @Override
-    public Category save(Category category) {
+    public Category save(final Category category) {
         return jpaCategoryRepository.save(category);
     }
 
     @Override
-    public void bulkSave(List<Category> categories) {
+    public void bulkSave(final List<Category> categories) {
         jpaCategoryRepository.saveAll(categories);
     }
 
     @Override
-    public void delete(Category category) {
+    public void delete(final Category category) {
         jpaCategoryRepository.delete(category);
     }
 }
