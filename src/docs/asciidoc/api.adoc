@@ -1,11 +1,12 @@
-= 무신사 B/E API 문서
-
 :toc: left
+:toclevels: 2
 :source-highlighter: highlightjs
 :sectlinks:
 
+= 무신사 B/E API 문서
+
 [[overview-http-status-codes]]
-=== HTTP status codes
+== HTTP status codes
 
 |===
 | 상태 코드 | 설명
