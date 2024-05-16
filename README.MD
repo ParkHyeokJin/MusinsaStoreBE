@@ -28,7 +28,7 @@
 
 ## 기술 스택
 
-<img width="746" alt="stackImg" src="https://github.com/ParkHyeokJin/MusinsaStoreBE/assets/19565772/f3d9de90-22cd-4dad-b983-497c1df266e1">
+<img width="634" alt="stackimg" src="https://github.com/ParkHyeokJin/MusinsaStoreBE/assets/19565772/eae05f4f-a015-4111-99c0-977908ad6bb9">
 
 ## 개발 환경
 
