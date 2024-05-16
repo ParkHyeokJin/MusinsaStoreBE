@@ -3,6 +3,7 @@ plugins {
     id 'org.springframework.boot' version '3.2.5'
     id 'io.spring.dependency-management' version '1.1.4'
     id "org.asciidoctor.jvm.convert" version "3.3.2"
+    id 'jacoco'
 }
 
 configurations {
@@ -18,6 +19,41 @@ java {
 
 repositories {
     mavenCentral()
+}
+
+jacoco {
+    toolVersion = "0.8.10"
+}
+
+jacocoTestReport {
+    reports {
+        html.required = true
+        xml.required = true
+    }
+    // check test coverage after generating report
+    finalizedBy jacocoTestCoverageVerification
+}
+
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            enabled = true
+
+            // check rules by class
+            element = 'CLASS'
+
+            // line coverage at least 80%
+            limit {
+                counter = 'LINE'
+                value = 'COVEREDRATIO'
+                minimum = 0.80
+            }
+
+            excludes = [
+                    "com.musinsa.shop.**.**"
+            ]
+        }
+    }
 }
 
 dependencies {
@@ -52,6 +88,7 @@ ext {
 tasks.named('test') {
     useJUnitPlatform()
     outputs.dir snippetsDir
+    finalizedBy jacocoTestReport
 }
 
 asciidoctor {
