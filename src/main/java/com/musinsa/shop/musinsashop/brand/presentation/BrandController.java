@@ -7,7 +7,6 @@ import com.musinsa.shop.musinsashop.brand.presentation.dto.request.CreateBrandRe
 import com.musinsa.shop.musinsashop.brand.presentation.dto.request.UpdateBrandRequest;
 import com.musinsa.shop.musinsashop.brand.presentation.dto.response.BrandResponse;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.Cacheable;
@@ -17,7 +16,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Tag(name = "브랜드 관리 API")
 @RestController
 @RequestMapping("/brand")
 @RequiredArgsConstructor
@@ -37,7 +35,6 @@ public class BrandController {
     }
 
     @PutMapping
-    @Operation(summary = "브랜드 수정")
     public ResponseEntity<BrandResponse> updateBrand(@Valid @RequestBody UpdateBrandRequest updateBrandRequest){
         final ReadBrandDto brandDto = brandService.updateBrand(updateBrandRequest.oldBrandName(), updateBrandRequest.newBrandName());
         return ResponseEntity.ok(BrandResponse.from(brandDto));
